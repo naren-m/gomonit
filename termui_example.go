@@ -3,7 +3,10 @@ package main
 import (
 	"math"
 
+	"log"
+
 	ui "github.com/gizak/termui"
+	"github.com/naren-m/gomonit/utils"
 )
 
 func main() {
@@ -21,13 +24,22 @@ func main() {
 		return ps
 	})()
 
+	rows, cols, err := utils.GetScreenSize()
+	if err != nil {
+		log.Fatal(err)
+	}
+	height := rows / 2
+	width := cols / 2
+
 	g := ui.NewGauge()
 	g.Percent = 50
-	g.Width = 50
+	g.Width = width
+	g.Height = height
 	g.BorderLabel = "Gauge"
 
 	par := ui.NewPar("<> This row has 3 columns\n<- Widgets can be stacked up like left side\n<- Stacked widgets are treated as a single widget")
-	par.Height = 5
+	par.Height = height
+	par.Width = width
 	par.BorderLabel = "Demonstration"
 
 	ls := ui.NewList()
@@ -39,12 +51,15 @@ func main() {
 		"",
 		"[3] Uploading File 3",
 	}
-	ls.Height = 5
+
+	ls.Height = height
+	ls.Width = width
 
 	lc := ui.NewLineChart()
 	lc.BorderLabel = "braille-mode Line Chart"
 	lc.Data = sinps
-	lc.Height = 11
+	lc.Height = height
+	lc.Width = width
 	lc.AxesColor = ui.ColorWhite
 	lc.LineColor = ui.ColorYellow | ui.AttrBold
 
