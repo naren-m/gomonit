@@ -1,0 +1,6 @@
+package: github.com/naren-m/gomonit
+import:
+- package: github.com/gizak/termui
+  version: v2.2.0
+- package: github.com/shirou/gopsutil
+  version: v2.17.02

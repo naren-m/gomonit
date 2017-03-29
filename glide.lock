@@ -1,0 +1,8 @@
+hash: 876c5a07b037a30d5a1dd8b130ba50fc0e7e951bc3c3b14acbb1d38a2cd53cc9
+updated: 2017-03-28T15:09:58.342262963-07:00
+imports:
+- name: github.com/gizak/termui
+  version: 24acd523c756fd9728824cdfac66aad9d8982fb7
+- name: github.com/shirou/gopsutil
+  version: d371ba1293cb48fedc6850526ea48b3846c54f2c
+testImports: []
